@@ -1,0 +1,55 @@
+Since you are strictly developing the **Backend** with an empty database, your focus is on the **API Layer** and the **Database Schema**. You are essentially building the "Engine" that will eventually power a frontend.
+
+For a training project, here is the structured Backend implementation plan.
+
+---
+
+### ## 1. Database Schema (The Foundation)
+Since you're starting fresh, you need to execute these `CREATE TABLE` scripts. This defines how your data relates to each other.
+
+* **Primary Table:** `CollectionCase` (The parent record).
+* **Child Tables:** `CaseNote`, `FollowUpTask`, and `HardshipFlag` (Linked via `CaseID`).
+
+$$\text{Relationship: } 1 \text{ Case } \rightarrow \infty \text{ Notes/Tasks}$$
+
+---
+
+### ## 2. The API Endpoints (The "Pipe")
+You need to build a **REST API** (using Python/FastAPI, Node.js/Express, or Java/Spring Boot). Here is the structure of the endpoints you need to code:
+
+#### **Module 1 & 4: The Data Fetchers (360 View & Notes)**
+* `GET /api/cases/{caseId}`: Returns all details for the dashboard (Balance, Status, Risk).
+* `GET /api/cases/{caseId}/history`: Returns a sorted list of all Notes, Tasks, and Flag changes (The "Activity Feed").
+* `POST /api/cases/{caseId}/notes`: Saves a new note to the database.
+
+#### **Module 2: The Logic (Dispute & Hardship)**
+* `PATCH /api/cases/{caseId}/status`: Updates the case from `Open` to `Dispute`.
+* `POST /api/hardship`: Creates a new record in the `HardshipFlag` table and automatically sets the main Case status to `InProgress`.
+
+#### **Module 3: The Scheduler (Tasks)**
+* `GET /api/tasks/assigned/{agentId}`: Returns the "To-Do" list for a specific agent.
+* `POST /api/tasks`: Creates a reminder for a future date.
+
+---
+
+### ## 3. Backend Logic "Training Challenges"
+As a backend developer, your job is more than just "saving data." You need to write **Business Logic**. Try coding these 3 rules:
+
+1.  **The Priority Trigger:** When a new case is created, if the `Balance` is $> \$5,000$, automatically set `Priority` to `High`.
+2.  **The Hardship Guard:** Write a script that prevents any "New Task" from being created if a `HardshipFlag` is currently `Active`.
+3.  **The Overdue Calculator:** Create a function that checks all `FollowUpTasks` and changes their status to `Overdue` if the current date is past the `DueDate`.
+
+---
+
+### ## 4. The 4-Week Backend Roadmap
+
+* **Week 1:** Database setup and **CRUD** (Create, Read, Update, Delete) for the `CollectionCase` table.
+* **Week 2:** Build the **Relationships**. Link Notes and Tasks to the Cases.
+* **Week 3:** Implement **State Machine** logic (e.g., ensuring a case can't go from `Closed` back to `Open` without a reason).
+* **Week 4:** Create **Search & Filter** logic (e.g., "Find all High Priority cases with an Active Hardship").
+
+
+
+---
+
+**Would you like me to provide the SQL code for these tables or a JSON example of what the "360-View" API response should look like?**
