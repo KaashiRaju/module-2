@@ -1,0 +1,8 @@
+case-service/
+└── src/main/java/com/collectx/case/
+    ├── controller/
+    ├── service/
+    ├── repository/
+    ├── entity/
+    ├── dto/
+    ├── client/
