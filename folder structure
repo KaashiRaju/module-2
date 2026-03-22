@@ -49,3 +49,36 @@ case-service/
     │     └── GlobalExceptionHandler.java
     │
     └── CaseServiceApplication.java
+
+
+
+
+
+
+
+
+
+
+case-service/
+└── src/main/java/com/collectx/case/
+    ├── controller/
+    │     ├── CollectionCaseController.java
+    │     └── CaseNoteController.java   ✅ NEW
+    │
+    ├── service/
+    │     ├── CollectionCaseService.java
+    │     └── CaseNoteService.java      ✅ NEW
+    │
+    ├── repository/
+    │     ├── CollectionCaseRepository.java
+    │     └── CaseNoteRepository.java   ✅ NEW
+    │
+    ├── entity/
+    │     ├── CollectionCase.java
+    │     └── CaseNote.java             ✅ NEW
+    │
+    ├── dto/
+    │     ├── CaseRequestDTO.java
+    │     ├── CaseResponseDTO.java
+    │     ├── CaseNoteRequestDTO.java   ✅ NEW
+    │     └── CaseNoteResponseDTO.java  ✅ NEW
