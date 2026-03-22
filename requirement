@@ -89,3 +89,345 @@ Task APIs
 POST /tasks
 GET /tasks
 PUT /tasks/{id}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Got it 👍 — I’ll explain your requirements in a **very simple, clear, real-world way** (no confusion).
+
+Think of this like:
+👉 “What exactly should my system do?”
+
+---
+
+# 🧠 **1. What is this system? (Simple meaning)**
+
+👉 You are building a system for **collection agents**
+👉 They handle **loan recovery cases**
+
+So your system must help agents:
+
+* Track cases
+* Add notes
+* Follow up
+* manage tasks
+
+---
+
+# 🧩 **2. Functional Requirements (What your system MUST DO)**
+
+---
+
+## 📌 **A. Case Management (Main Feature)**
+
+👉 This is the heart of your system
+
+Your system should allow:
+
+* ✅ Create a case
+  (Example: customer didn’t pay loan)
+
+* ✅ View case details
+  (all info in one screen)
+
+* ✅ Update case status
+
+  ```
+  OPEN → IN_PROGRESS → RESOLVED → CLOSED
+  ```
+
+* ✅ Set priority
+
+  ```
+  LOW / MEDIUM / HIGH
+  ```
+
+* ✅ Set case type
+
+  ```
+  DELINQUENCY / DISPUTE / HARDSHIP
+  ```
+
+---
+
+## 📝 **B. Case Notes**
+
+👉 Agents write what happened
+
+Example:
+
+> “Customer promised to pay next week”
+
+System should:
+
+* Add note
+* Show all notes (history)
+
+Each note must store:
+
+* Who wrote it
+* When
+* What they wrote
+
+---
+
+## 📅 **C. Follow-Up Tasks**
+
+👉 Agents must take actions
+
+Example:
+
+* Call customer
+* Visit house
+
+System should:
+
+* Create task
+* Assign to agent
+* Set due date
+* Track status:
+
+  ```
+  OPEN / DONE / OVERDUE
+  ```
+
+---
+
+## ⚠️ **D. Hardship Handling**
+
+👉 Some customers have real problems
+
+Example:
+
+* Medical emergency
+* Job loss
+
+System should:
+
+* Mark hardship
+* Store reason
+* Track dates
+
+---
+
+## 🔍 **E. Search & Filter**
+
+👉 Agents should easily find cases
+
+Filter by:
+
+* Status
+* Priority
+* Case type
+* Assigned agent
+
+Search by:
+
+* Case ID
+* Loan ID
+
+---
+
+## 📊 **F. Dashboard**
+
+👉 Show summary (very important)
+
+Example:
+
+* Total cases
+* Open cases
+* Overdue tasks
+* High priority cases
+
+👉 This helps managers monitor system
+
+---
+
+# 🔐 **3. Security Requirements (Who can do what)**
+
+---
+
+## 👤 Login System
+
+* User must login
+
+---
+
+## 👥 Roles
+
+| Role       | What they can do |
+| ---------- | ---------------- |
+| AGENT      | Work on cases    |
+| SUPERVISOR | Monitor          |
+| ADMIN      | Full control     |
+
+---
+
+## 🔒 Rules
+
+* Only authorized users can:
+
+  * Create cases
+  * Update cases
+  * Assign tasks
+
+---
+
+# ⚡ **4. Non-Functional Requirements (System Quality)**
+
+---
+
+## 🚀 Performance
+
+* API should be fast (< 2 sec)
+
+---
+
+## 📈 Scalability
+
+* Many users can use system at same time
+
+---
+
+## 🔒 Security
+
+* Use JWT
+* Encrypt passwords
+
+---
+
+## 📊 Availability
+
+* System should work always (24/7)
+
+---
+
+# 🗄️ **5. Database Requirements**
+
+👉 What data you store
+
+Tables:
+
+* `collection_case` → cases
+* `case_note` → notes
+* `follow_up_task` → tasks
+* `hardship_flag` → hardship
+* `user` → login
+
+---
+
+# 🌐 **6. API Requirements (How frontend talks to backend)**
+
+---
+
+## Case APIs
+
+* Create case
+
+```
+POST /cases
+```
+
+* Get all cases
+
+```
+GET /cases
+```
+
+* Get one case
+
+```
+GET /cases/{id}
+```
+
+* Update case
+
+```
+PUT /cases/{id}
+```
+
+---
+
+## Notes APIs
+
+* Add note
+
+```
+POST /notes
+```
+
+* Get notes
+
+```
+GET /cases/{id}/notes
+```
+
+---
+
+## Task APIs
+
+* Create task
+
+```
+POST /tasks
+```
+
+* Get tasks
+
+```
+GET /tasks
+```
+
+* Update task
+
+```
+PUT /tasks/{id}
+```
+
+---
+
+# 🎯 **Final Simple Summary**
+
+👉 Your system should:
+
+* Manage **cases**
+* Track **notes**
+* Handle **tasks**
+* Support **hardship cases**
+* Provide **dashboard**
+* Secure with **login + roles**
+* Store data in **MySQL**
+* Expose **REST APIs**
+
+---
+
+# 🧠 **One Line (Interview Answer)**
+
+👉
+“This system manages loan collection cases with features like case tracking, notes, tasks, hardship handling, role-based access, and dashboard reporting using REST APIs.”
+
+---
+
+# 🚀 NEXT STEP
+
+Now you understand clearly 👍
+
+We can start building:
+
+👉 “add notes module”
+👉 “add task module”
+👉 “add dashboard”
+
+Just tell what you want next 💼
+
