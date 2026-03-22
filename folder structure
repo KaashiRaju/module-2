@@ -6,3 +6,13 @@ case-service/
     ├── entity/
     ├── dto/
     ├── client/
+
+
+Depencies
+----------
+Spring Web
+Spring Data JPA
+MySQL Driver
+Lombok
+Validation
+OpenFeign
