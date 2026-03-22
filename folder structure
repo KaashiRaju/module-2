@@ -16,3 +16,36 @@ MySQL Driver
 Lombok
 Validation
 OpenFeign
+
+
+
+module-----1
+
+
+case-service/
+└── src/main/java/com/collectx/case/
+    ├── controller/
+    │     └── CollectionCaseController.java
+    │
+    ├── service/
+    │     └── CollectionCaseService.java
+    │
+    ├── repository/
+    │     └── CollectionCaseRepository.java
+    │
+    ├── entity/
+    │     └── CollectionCase.java
+    │
+    ├── dto/
+    │     ├── CaseRequestDTO.java
+    │     └── CaseResponseDTO.java
+    │
+    ├── enums/
+    │     ├── CaseStatus.java
+    │     ├── CaseType.java
+    │     └── Priority.java
+    │
+    ├── exception/
+    │     └── GlobalExceptionHandler.java
+    │
+    └── CaseServiceApplication.java
